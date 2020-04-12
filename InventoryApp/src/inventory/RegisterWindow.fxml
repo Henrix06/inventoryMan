@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #fbceb1;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.RegisterWindow">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Pane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #fbceb1;">
+         <effect>
+            <DropShadow height="12.0" radius="5.5" width="12.0" />
+         </effect>
+         <children>
+            <Pane layoutX="233.0" prefHeight="500.0" prefWidth="366.0" style="-fx-background-color: #dbe9f4;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <TextField fx:id="emailField" layoutX="98.0" layoutY="82.0" prefHeight="26.0" prefWidth="257.0" promptText="email..." />
+                  <TextField fx:id="usrField" layoutX="98.0" layoutY="147.0" prefHeight="26.0" prefWidth="257.0" promptText="username..." />
+                  <PasswordField fx:id="passwordField" layoutX="98.0" layoutY="209.0" prefHeight="26.0" prefWidth="257.0" promptText="password..." />
+                  <PasswordField fx:id="verifyPassword" layoutX="98.0" layoutY="280.0" prefHeight="26.0" prefWidth="257.0" promptText="verify..." />
+                  <Button fx:id="btnRegister" layoutX="116.0" layoutY="364.0" mnemonicParsing="false" onAction="#Register" style="-fx-background-color: #fbceb1;" text="REGISTER">
+                     <effect>
+                        <DropShadow height="5.0" radius="2.0" width="5.0" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="btnBack" layoutX="272.0" layoutY="364.0" mnemonicParsing="false" onAction="#PrevWindow" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #fbceb1;" text="BACK">
+                     <effect>
+                        <DropShadow height="5.0" radius="2.0" width="5.0" />
+                     </effect>
+                  </Button>
+                  <Label fx:id="lblSaveStatus" layoutX="125.0" layoutY="332.0" prefHeight="16.0" prefWidth="203.0" />
+               </children></Pane>
+            <ImageView fitHeight="28.0" fitWidth="31.0" layoutX="1.0" layoutY="450.0">
+               <image>
+                  <Image url="@asserts/server.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="22.0" layoutY="14.0" prefHeight="62.0" prefWidth="203.0" text="REGISTRATION">
+               <font>
+                  <Font name="Berlin X-Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="57.0" prefHeight="26.0" prefWidth="168.0" text="window">
+               <font>
+                  <Font name="Berlin X-Bold" size="31.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblError" layoutX="35.0" layoutY="453.0" prefHeight="16.0" prefWidth="176.0" />
+         </children>
+      </Pane>
+   </children>
+</GridPane>
