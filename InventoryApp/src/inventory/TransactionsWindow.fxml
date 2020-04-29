@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #gghfef;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.TransactionsTab">
+   <children>
+      <Pane layoutX="259.0" layoutY="170.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Pane layoutX="5.0" layoutY="10.0" prefHeight="564.0" prefWidth="354.0" style="-fx-background-color: #46d392;">
+               <effect>
+                  <DropShadow spread="0.62">
+                     <color>
+                        <Color red="0.27450981736183167" green="0.8274509906768799" blue="0.572549045085907" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Button fx:id="btnHome" layoutX="136.0" layoutY="195.0" mnemonicParsing="false" onAction="#goHome" text="Home" />
+                  <TextField fx:id="receiptField" layoutX="156.0" layoutY="240.0" prefHeight="26.0" prefWidth="197.0" />
+                  <TextField fx:id="nameField" layoutX="156.0" layoutY="274.0" prefHeight="26.0" prefWidth="197.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="253.0" text="ReceiptNumber" textAlignment="CENTER" />
+                  <Label layoutX="59.0" layoutY="349.0" text="Date" />
+                  <Label layoutX="17.0" layoutY="287.0" prefHeight="16.0" prefWidth="115.0" text="TransactionName" />
+                  <Button fx:id="btnTransact" layoutX="63.0" layoutY="410.0" mnemonicParsing="false" onAction="#enterTransaction" text="EnterTrans" />
+                  <Label fx:id="serverStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="159.0" layoutY="476.0" />
+                  <Label layoutX="14.0" layoutY="101.0" prefHeight="76.0" prefWidth="339.0" text="ACCOUNTS" textAlignment="CENTER">
+                     <font>
+                        <Font name="Berlin X-Bold" size="62.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="11.89" radius="5.445" width="11.89" />
+                     </effect>
+                  </Label>
+                  <DatePicker fx:id="dateField" layoutX="156.0" layoutY="344.0" />
+                  <Label layoutX="57.0" layoutY="316.0" text="Amount" />
+                  <TextField fx:id="amountField" layoutX="156.0" layoutY="311.0" prefHeight="26.0" prefWidth="197.0" />
+                  <Button fx:id="btnRefresh" layoutX="232.0" layoutY="410.0" mnemonicParsing="false" onAction="#refreshWindow" text="Refresh" />
+               </children></Pane>
+            <TableView fx:id="transTable" layoutX="371.0" layoutY="4.0" prefHeight="462.0" prefWidth="602.0">
+              <columns>
+                <TableColumn fx:id="col_Number" prefWidth="123.0" text="ReceiptNumber" />
+                <TableColumn fx:id="col_Date" prefWidth="123.0" text="Date" />
+                  <TableColumn fx:id="c0l_Name" prefWidth="218.0" text="TransactionName" />
+                  <TableColumn fx:id="col_Amount" prefWidth="137.0" text="Amount" />
+              </columns>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TableView>
+            <Pane layoutX="371.0" layoutY="483.0" prefHeight="83.0" prefWidth="602.0" style="-fx-background-color: white;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="24.0" prefHeight="35.0" prefWidth="158.0" text="Cash in Hand">
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+                  <TextField fx:id="totalField" layoutX="348.0" layoutY="29.0" prefHeight="26.0" prefWidth="197.0" />
+               </children>
+            </Pane>
+         </children></Pane>
+   </children>
+</AnchorPane>

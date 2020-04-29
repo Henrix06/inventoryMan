@@ -24,18 +24,10 @@ import java.util.ResourceBundle;
 public class HomeController implements Initializable {
 
     public Label ServerStatus;
-    public Button search;
-    public Button btnCheckout;
-    public Button btnCheckIn;
     public Button btnLogout;
     public Button SpreadSheet;
-    public TextField idField;
-    public TextField quantityField;
-    public TextField stckName;
-    public TableView<StockTable> tableHome;
-    public TableColumn<StockTable,String> stkId;
-    public TableColumn<StockTable,String> stkName;
-    public TableColumn<StockTable,String> stkQua;
+    public Button btnTractions;
+    public Button bntInventory;
     private ObservableList<StockTable> oblist = FXCollections.observableArrayList();
 
     PreparedStatement preparedStatement;
@@ -54,33 +46,6 @@ public class HomeController implements Initializable {
             ServerStatus.setTextFill(Color.GREEN);
             ServerStatus.setText("Server is up : Good to go");
         }
-
-        ResultSet rs = null;
-        try {
-            rs = con.createStatement().executeQuery("select * from Stock");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        while(true){
-            try {
-                if (!rs.next()) break;
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            try {
-                oblist.add(new StockTable(rs.getString("idStock"),rs.getString("StockName"),rs.getString("Quantity")));
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        stkId.setCellValueFactory(new PropertyValueFactory<>("idStock"));
-        stkName.setCellValueFactory(new PropertyValueFactory<>("StockName"));
-        stkQua.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
-
-        tableHome.setItems(oblist);
-
     }
     public HomeController() {
         con = ConnectionUtil.conDB();
@@ -98,26 +63,30 @@ public class HomeController implements Initializable {
         stage.show();
     }
 
-    public void EnterStockWindow(ActionEvent actionEvent) throws IOException {
-        savedata();
+    public void enterTransactionsWindow(ActionEvent actionEvent) throws IOException {
+        Node node = (Node) actionEvent.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("TransactionsWindow.fxml")));
+        stage.setScene(scene);
+        stage.show();
     }
 
-    public String savedata() {
-        try {
-            String st = "INSERT INTO Stock ( idStock, StockName, Quantity) VALUES (?,?,?)";
-            preparedStatement = (PreparedStatement) con.prepareStatement(st);
-            preparedStatement.setString(1, idField.getText());
-            preparedStatement.setString(2, stckName.getText());
-            preparedStatement.setString(3, quantityField.getText());
-            preparedStatement.executeUpdate();
-
-            return "Success";
-
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            return "Exception";
-        }
+    public void enterInventoryWindow(ActionEvent actionEvent) throws IOException {
+        Node node = (Node) actionEvent.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("InventoryWindow.fxml")));
+        stage.setScene(scene);
+        stage.show();
     }
-    public void EnterCheckOutWindow(ActionEvent actionEvent) {
+
+    public void enterStockWindow(ActionEvent actionEvent) throws IOException {
+        Node node = (Node) actionEvent.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("StockWindow.fxml")));
+        stage.setScene(scene);
+        stage.show();
     }
 }

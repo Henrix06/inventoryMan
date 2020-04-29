@@ -19,7 +19,7 @@ public class ConnectionUtil {
     {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/InventoryApp", "****", "****");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/InventoryApp", "****", "*****");
             return con;
         } catch (ClassNotFoundException | SQLException ex) {
             System.err.println("ConnectionUtil : "+ex.getMessage());

@@ -4,38 +4,16 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.HomeController">
    <children>
-      <Pane layoutX="4.0" layoutY="6.0" style="-fx-background-color: #dbe9f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="4.0" layoutY="6.0" style="-fx-background-color: teal;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane layoutY="-3.0" prefHeight="607.0" prefWidth="329.0" style="-fx-background-color: #fbceb1;">
+            <Pane layoutX="10.0" layoutY="11.0" prefHeight="578.0" prefWidth="298.0" style="-fx-background-color: #effefe;">
                <children>
-                  <Button fx:id="btnCheckout" layoutX="233.0" layoutY="417.0" mnemonicParsing="false" onAction="#EnterCheckOutWindow" style="-fx-background-color: #dbe9f4;" text="CheckOut">
-                     <effect>
-                        <DropShadow height="10.0" radius="4.5" width="10.0" />
-                     </effect></Button>
-                  <Button fx:id="btnCheckIn" layoutX="124.0" layoutY="417.0" mnemonicParsing="false" onAction="#EnterStockWindow" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #dbe9f4;" text="CheckIn">
-                     <effect>
-                        <DropShadow height="10.0" radius="4.5" width="10.0" />
-                     </effect></Button>
-                  <Button fx:id="SpreadSheet" layoutX="14.0" layoutY="417.0" mnemonicParsing="false" onAction="#SpreadSheetWindow" prefHeight="26.0" prefWidth="82.0" style="-fx-background-color: #dbe9f4;" text="Math">
-                     <effect>
-                        <DropShadow height="10.0" radius="4.5" width="10.0" />
-                     </effect></Button>
-                  <Button fx:id="btnLogout" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="15.0" layoutY="554.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="26.0" prefWidth="104.0" style="-fx-background-color: #ff560e;" text="LogOut" textAlignment="RIGHT">
-                     <graphic>
-                        <ImageView fitHeight="33.0" fitWidth="25.0">
-                           <image>
-                              <Image url="@asserts/ic_exit_to_app_black_24dp.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <effect>
-                        <DropShadow height="10.0" radius="4.5" width="10.0" />
-                     </effect></Button>
-                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="6.0" layoutX="7.0" layoutY="14.0" prefHeight="62.0" prefWidth="314.0" text="DASH BOARD" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                  <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="6.0" layoutX="-8.0" layoutY="154.0" prefHeight="80.0" prefWidth="314.0" text="HOME" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true">
                      <font>
                         <Font name="Berlin X-Bold" size="51.0" />
                      </font>
@@ -43,34 +21,59 @@
                         <DropShadow height="10.0" radius="4.5" width="10.0" />
                      </effect>
                   </Label>
-                  <Label fx:id="ServerStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="67.0" layoutY="491.0" prefHeight="21.0" prefWidth="240.0">
+                  <Label fx:id="ServerStatus" alignment="CENTER" contentDisplay="CENTER" layoutX="44.0" layoutY="465.0" prefHeight="21.0" prefWidth="240.0">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="32.0" fitWidth="30.0" layoutX="15.0" layoutY="485.0">
+                  <ImageView fitHeight="32.0" fitWidth="30.0" layoutX="14.0" layoutY="459.0">
                      <image>
                         <Image url="@asserts/server.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="idField" layoutX="47.0" layoutY="119.0" prefHeight="26.0" prefWidth="234.0" promptText="stockId..." />
-                  <TextField fx:id="stckName" layoutX="48.0" layoutY="185.0" prefHeight="26.0" prefWidth="234.0" promptText="name..." />
-                  <TextField fx:id="quantityField" layoutX="48.0" layoutY="258.0" prefHeight="26.0" prefWidth="234.0" promptText="quantity..." />
+                  <Button fx:id="btnLogout" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="94.0" layoutY="534.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="21.0" prefWidth="82.0" style="-fx-background-color: #ff560e;" text="LogOut" textAlignment="RIGHT">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="25.0">
+                           <image>
+                              <Image url="@asserts/ic_exit_to_app_black_24dp.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <effect>
+                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="201.0" fitWidth="203.0" layoutX="46.0" layoutY="-29.0">
+                     <image>
+                        <Image url="@asserts/drawable-xxxhdpi/DERF.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="SpreadSheet" layoutX="44.0" layoutY="257.0" mnemonicParsing="false" onAction="#enterStockWindow" prefHeight="32.0" prefWidth="210.0" style="-fx-background-color: #dbe9f4;" text="STOCK">
+                     <effect>
+                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="bntInventory" layoutX="44.0" layoutY="309.0" mnemonicParsing="false" onAction="#enterInventoryWindow" prefHeight="32.0" prefWidth="210.0" style="-fx-background-color: #dbe9f4;" text="INVENTORY">
+                     <effect>
+                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
+                  <Button fx:id="btnTractions" layoutX="44.0" layoutY="365.0" mnemonicParsing="false" onAction="#enterTransactionsWindow" prefHeight="32.0" prefWidth="210.0" style="-fx-background-color: #dbe9f4;" text="TRANSACTIONS">
+                     <effect>
+                        <DropShadow height="10.0" radius="4.5" width="10.0" />
+                     </effect>
+                  </Button>
                </children>
                <effect>
-                  <DropShadow height="12.0" radius="5.5" width="12.0" />
+                  <DropShadow height="18.07" radius="8.57" spread="0.71" width="18.21">
+                     <color>
+                        <Color red="0.9372549057006836" green="0.9960784316062927" blue="0.9960784316062927" />
+                     </color></DropShadow>
                </effect>
             </Pane>
-            <TableView fx:id="tableHome" layoutX="337.0" layoutY="3.0" prefHeight="591.0" prefWidth="459.0" style="-fx-background-color: #fff7fe;">
-              <columns>
-                <TableColumn fx:id="stkId" prefWidth="125.0" text="StockId" />
-                <TableColumn fx:id="stkName" prefWidth="199.0" text="StockName"/>
-                  <TableColumn fx:id="stkQua" prefWidth="134.0" text="Quantity" />
-              </columns>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </TableView>
          </children>
          <effect>
             <DropShadow />
